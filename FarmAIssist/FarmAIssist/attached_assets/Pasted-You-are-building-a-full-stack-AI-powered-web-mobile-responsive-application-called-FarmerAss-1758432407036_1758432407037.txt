@@ -1,0 +1,71 @@
+You are building a **full-stack AI-powered web + mobile responsive application** called **"FarmerAssist"** for the **Government of Kerala Department of Agriculture**.  
+The app will support **farmers and agricultural officers** with AI-driven advisory services.  
+
+---
+
+## 🔹 Core Objectives
+- Farmers can **sign up, sign in, and sign out** securely.  
+- Farmers can **ask questions in their own language** (Malayalam, Hindi, Tamil, English, etc.).  
+- App detects query language OR uses profile preference → AI must **reply in the same language**.  
+- Support **text, voice, and image uploads**.  
+- AI answers generated via **Perplexity API (LLM backend)** + agri datasets.  
+- **Farmer-first UI** that works across PC, tablet, and mobile.  
+- Escalation system for unresolved queries.  
+- Learning loop with farmer feedback.  
+
+---
+
+## 🔹 Tech Stack & Setup
+- **Backend**: Python (FastAPI or Flask) on Replit.  
+- **Frontend**: HTML + Tailwind/Bootstrap + JS.  
+- **Database**: SQLite/PostgreSQL (users, queries, preferences).  
+- **Authentication**: JWT sessions for Sign In / Out.  
+- **AI Integration**: Perplexity API key.  
+- **Language Handling**:  
+  - Auto-detect query language (using langdetect or Polyglot in backend).  
+  - Perplexity prompt → `"Answer in the same language as the query: {language}"`.  
+- **Voice**: Browser Speech-to-Text (multi-language support).  
+- **TTS**: Respond in query’s language where supported.  
+
+---
+
+## 🔹 Pages & Features
+
+### 1. Landing Page
+- Branding: *FarmerAssist*.  
+- Buttons: “Sign In” | “Sign Up”.  
+
+### 2. Authentication
+- Sign Up → Name, Mobile, Location, Crops grown, Password, Preferred Language.  
+- Sign In → Mobile/Email + Password.  
+- Profile → Edit preferred language.  
+
+### 3. Query Page
+- Input options:  
+  - Voice (multi-language mic).  
+  - Text box.  
+  - Image upload with optional caption.  
+- Backend detects language → sends structured request to AI.  
+- Response in the **same language**.  
+- Answer displayed + optional Text-to-Speech in that language.  
+- Escalation button.  
+
+### 4. Advisory Feed
+- Predefined quick queries in **multiple languages**.  
+
+### 5. Reports/History
+- Save queries in both original + AI reply language.  
+- Export to PDF/Excel.  
+
+### 6. Profile & Settings
+- Farmer details.  
+- Preferred language option (Malayalam, Hindi, Tamil, English, etc.).  
+- Theme switcher: Light, Dark, Green, Blue, Grey, High Contrast, Golden, Warm Earthy.  
+- Sign Out button.  
+
+---
+
+## 🔹 Backend Flow (Python Example)
+1. User submits query (voice/text/image).  
+2. Backend detects query language (`langdetect`).  
+3. Query packaged as:  
